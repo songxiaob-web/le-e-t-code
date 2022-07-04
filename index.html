@@ -9,7 +9,21 @@
 </head>
 
 <body>
+    <script type="module">
+        import ListNodeAry from './Listnode.js'
+        var node = new ListNodeAry();
+        node.append(1);
+        node.append(2);
+        node.append(3);
+        node.append(4);
+        window.node = node;
+    </script>
 
+    <script>
+        window.onload = () => {
+            console.log('.', node);
+        }
+    </script>
 </body>
 
 </html>
