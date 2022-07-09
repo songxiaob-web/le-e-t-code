@@ -13,15 +13,35 @@
         import ListNodeAry from './Listnode.js'
         var node = new ListNodeAry();
         node.append(1);
+        node.append(1);
         node.append(2);
-        node.append(3);
-        node.append(4);
         window.node = node;
     </script>
 
     <script>
         window.onload = () => {
-            console.log('.', node);
+
+
+            var deleteDuplicates = function (head) {
+                if (!head) return head;
+                var obj = { [head.val]: true };
+                var pre = head;
+                var cur = head.next;
+                while (cur) {
+                    if (obj[cur.val]) {
+                        pre.next = cur.next;
+                        cur = cur.next;
+                    } else {
+                        obj[cur.val] = true;
+                        pre = cur;
+                        cur = cur.next;
+                    }
+                }
+                return head
+            };
+
+            deleteDuplicates(node.head);
+            console.log('=>',node.print());
         }
     </script>
 </body>

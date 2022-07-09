@@ -38,14 +38,4 @@ class ListNodeAry {
     }
 }
 
-
-// var node = new ListNodeAry();
-// node.append(1);
-// node.append(2);
-// node.append(3);
-// node.append(4);
-// console.log('.', node.head); 
-// console.log('>', node.print());
-window.ListNodeAry = ListNodeAry
-
 export default ListNodeAry
