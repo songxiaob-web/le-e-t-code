@@ -17,31 +17,20 @@
         node.append(2);
         window.node = node;
     </script>
-
     <script>
         window.onload = () => {
 
-
             var deleteDuplicates = function (head) {
-                if (!head) return head;
-                var obj = { [head.val]: true };
-                var pre = head;
-                var cur = head.next;
-                while (cur) {
-                    if (obj[cur.val]) {
-                        pre.next = cur.next;
-                        cur = cur.next;
-                    } else {
-                        obj[cur.val] = true;
-                        pre = cur;
-                        cur = cur.next;
-                    }
+                if (!head) {
+                    return null;
                 }
-                return head
+                head.next = deleteDuplicates(head.next);
+                return head.next && head.next.val === head.val ? head.next : head;
+
             };
 
-            deleteDuplicates(node.head);
-            console.log('=>',node.print());
+            let result = deleteDuplicates(node.head);
+            console.log('>>result', node.print(), result)
         }
     </script>
 </body>
