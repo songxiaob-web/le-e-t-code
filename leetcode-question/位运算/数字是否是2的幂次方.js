@@ -5,7 +5,6 @@ var isPowerOfTwo = function (n) {
   if (n === 1) return true;
   if (n % 2 !== 0) return false;
   n = n >> 1;
-  console.log(n)
   if (n === 1) return true;
   if (n % 2 !== 0) return false;
   return isPowerOfTwo(n)
