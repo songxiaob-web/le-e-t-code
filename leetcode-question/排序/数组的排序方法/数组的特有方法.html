@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+	// 数组的concat方法 连接1个或多个数组
+		arr=['美国','法国','中国','日本'];
+			arrTwo=['柬埔寨','老挝','缅甸','俄罗斯'];
+		function arrConcat(){
+			var result = arr.concat(arrTwo);
+			arrTwo=[];
+			console.log(arr,result,arrTwo);
+			
+		}
+	// 数组的slice方法,截取数组并获得新数组 
+	// 数组的slice 不会影响原数组,会返回新的数组
+		function arrSlice(){
+			arr = arr.slice(1)
+			var result = arr.slice(1);
+			var resultTwo = arr.slice(-1);
+			console.log(result,arr,resultTwo);
+		}
+	
+	//替换,查找,数组中有没有某一个元素,然后更改
+	function arrSplice(){
+			var arr=['美国','法国','中国','日本'];
+			var arrTwo=['柬埔寨','老挝','缅甸','俄罗斯'];
+		var name = prompt('请在以下数组中输入一个值'+arrTwo);
+		var result = arrTwo.indexOf(name)
+		if(result >=0){
+			arr[arr.length] = arrTwo.splice(result,1).join('')
+		}else{
+			alert('输入有误,请重新输入')
+		}
+		console.log(arr)
+	}
+	
+</script>
+
+</body>
+<button onclick="arrConcat()">检查连接数组</button>
+<button onclick="arrSlice()">截取获取</button>
+<button onclick="arrSplice()">替换,查找数组元素</button>
+</html>

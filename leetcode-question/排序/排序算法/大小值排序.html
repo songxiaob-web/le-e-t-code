@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 冒泡排序 执行了 10的10次方 
+    var array = [8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7];
+    var arr = array.slice();
+
+    // 找到数组的最大最小值 排序
+    function MaxMinSort() {
+      let aryLen = array.length;
+      let ary = Array(aryLen);
+      for (let i = 0; i < Math.ceil(aryLen / 2); i++) {
+        let maxNum = Math.max.apply(null, arr);
+        let MinNum = Math.min.apply(null, arr);
+        let maxIndex = arr.indexOf(maxNum);
+        if (maxIndex >= 0) arr.splice(maxIndex, 1);
+        let minIndex = arr.indexOf(MinNum);
+        if (minIndex >= 0) arr.splice(minIndex, 1);
+        ary[i] = maxNum;
+        ary[ary.length - i - 1] = MinNum;
+      }
+      return ary
+    }
+
+    arr = MaxMinSort();
+    console.log('==>', arr);
+
+  </script>
+</body>
+
+</html>

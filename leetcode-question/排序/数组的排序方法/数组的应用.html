@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+	//这是一行星星
+	function arrSanJiao(){
+		for(var i=0 ;i<5;i++){
+			var sanjiao = ""
+			for(var j=0;j<5;j++){
+				 sanjiao += "*"     
+			}
+		}
+	}
+	
+	//数组的等腰三角形用 * 代替
+//	function arrDengYao(){
+//		for(var i=1;i<=5;i++){
+//			var dengyaosanjiao = ""
+//			for(var j=1;j<5-i;j++){
+//				dengyaosanjiao += " "
+//			}
+//			for(var k=1;k<=(2*i-1);k++){
+//				dengyaosanjiao += "*"
+//			}
+//			console.log(dengyaosanjiao)
+//		}
+//	}
+	
+	
+	//数组的等腰三角形用 * 代替.将数据保留到一个数组里
+	function arrDengYao(){
+	
+		for(var i=1;i<=5;i++){
+				var dengyaosanjiao = []
+			for(var j=1;j<=5-i;j++){
+				dengyaosanjiao[dengyaosanjiao.length] = " "
+			}
+			for(var k=1;k<=(2*i-1);k++){
+				dengyaosanjiao[dengyaosanjiao.length] = "*"
+			}
+			console.log(dengyaosanjiao.join(""))
+		}
+	}
+	
+	//这是一个99乘法表
+//	function chenfabiao(){
+//			for(var i=1;i<=9;i++){
+//					var num = "";
+//				for(var j=1;j<=i;j++){
+//					num = num + (j+'*'+i+'='+j*i+" ");
+//				}	
+//				console.log(num)
+//			}
+//	}
+	
+		//这是一个99乘法表
+	function chenfabiao(){
+			for(var i=1,arr=[];i<=9;i++,arr.length=0){		
+				for(var j=1;j<=i;j++){
+					arr[arr.length]=(j+'*'+i+'='+j*i);
+				}
+				console.log(arr.toString())
+			}
+	}
+	
+</script>
+<button onclick="arrSanJiao()">测试用数组写成三角形</button>
+<button onclick="arrDengYao()">测试用数组写成等腰三角形</button>
+<button onclick="chenfabiao()">测试用数组写99乘法表</button>
+</body>
+</html>

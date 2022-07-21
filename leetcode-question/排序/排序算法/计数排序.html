@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>计数排序</title>
+</head>
+
+<body>
+  <script>
+    // 计数排序 执行了 10的10次方 
+    //  稳定性 好
+    //  时间复杂度 o(nlogn)
+    // 空间复杂度 
+    // 如果 打乱1 - 11 这几个数, 知道内容 不知道重复出现几次
+    // 规定一个 1 - 11这个区间,
+    // 将需要排序的数组 依次放到这个区间当中
+    // 完成后再取出
+    var array = [11, 8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7];
+
+    // 对象有自动排序的功能
+    function countSort(array) {
+      const countObj = {};
+      const ary = [];
+      for (let index = 0; index < array.length; index++) {
+        if (!countObj[array[index]]) {
+          countObj[array[index]] = 1
+        } else {
+          countObj[array[index]]++;
+        };
+      }
+      // 找到countObj.value看看 有几次 直到数字 -为 0 当次 key 循环结束, 准备下次
+      for (let i in countObj) {
+        let item = countObj[i];
+        for (let k = item; k > 0; k--) {
+          ary.push(i * 1)
+        }
+      }
+      return ary
+    }
+
+    let quiceAry = countSort(array);
+    console.log('==>', quiceAry);
+
+  </script>
+</body>
+
+</html>

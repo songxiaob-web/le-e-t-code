@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>归并排序</title>
+</head>
+
+<body>
+  <script>
+    // 归并排序 执行了 10的10次方 
+    //  稳定性 好
+    //  时间复杂度 o(nlogn)
+    // 空间复杂度 
+    var array = [11, 8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7];
+
+    // 归并排序
+    function mergeSplit(left = [], right = []) {
+      let temp = [];
+      let index = 0;
+      while (left.length > 0 && right.length > 0) {
+        if (left[index] <= right[index]) {
+          temp.push(left.shift())
+        } else {
+          temp.push(right.shift())
+        }
+      }
+
+      temp.push(...left, ...right) // 剩下的值 放到数组里
+      console.log('temp',temp)
+      return temp
+    }
+
+    // 拆分数组
+    function mergeSort(array) {
+      if (array.length <= 1) return array
+      let prvioder = Math.floor(array.length / 2);
+      let left = array.slice(0, prvioder);
+      let right = array.slice(prvioder);
+      console.log('拆分')
+      return mergeSplit(mergeSort(left), mergeSort(right))
+    }
+
+    let quiceAry = mergeSort(array);
+    /**
+     * 原数组 [ 11, 8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7 ]
+     * 
+     * 1. 第一次拆分: 原数组1分为2  left:[ 11, 8, 1, 2, 3, 5 ] ; right: [6, 2, 2, 9, 4, 7]; 输出 = > 拆
+     * 
+     * 2. 第二次拆分: 左数组1分为2  left:[ 11, 8, 1 ] ; right: [2, 3, 5]; 输出 = > 拆
+     * 
+     * 3. 第三次拆分 left-left : 1/2左数组1分为2  left:[ 11 ] ; right: [ 8, 1 ] 输出 = > 拆
+     * 
+     *    作比较 mergeSplit( [11] ,right: [ 8, 1 ] ); 左边数组拆分完毕 等待右边完成
+     * 
+     * 4. left 数组长度为1, 不在拆分 ; 右数组 拆分 right.left: [ 8 ], right.right [ 1 ] 输出 = > 拆
+     * 
+     * 5. 作比较 mergeSplit([8] ,[1]); 输出 => 排序  返回 [ 1,8 ];
+     * 
+     * 6. 第三部等待的 比较开始  mergeSplit( [11] , [ 1, 8 ] ); [ 1, 8, 11 ]输出 => 排序
+     *      
+     *    完成了 1 / 4 得到 [ 1, 8, 11 ]  
+     * 
+     * 7. 第一次拆分 left-right : left:[ 2 ] ; right: [ 3, 5 ]; 输出 = > 拆
+     * 
+     *    作比较 mergeSplit( [2] ,right: [ 3, 5 ] ); 左边数组拆分完毕 等待右边完成
+     * 
+     * 8. 第二次拆分: 左数组1分为2  left:[ 3 ] ; right: [ 5 ]; 输出 = > 拆
+     * 
+     * 9. 拆分完成比较: 作比较 mergeSplit( [ 3 ] , [ 5 ] ); 输出 =>  排序
+     * 
+     *    得到结果 [ 3, 5 ]
+     * 
+     * 10. 第7部等待的 比较开始  mergeSplit( [2] , [ 3, 5 ] );输出 => 排序
+     *    
+     *    得到结果 [ 2, 3, 5 ]
+     * 
+     * 11. 拆分完成比较: 作比较 mergeSplit( [ 1, 8, 11 ]  [ 2, 3, 5 ] ); 输出 => 排序
+     * 
+     *    得到结果 [ 1, 2, 3, 5, 8, 11 ]
+     * 
+     *    left 排序完成 输出 拆 * 4  排序 * 2  拆 * 2  排序 * 3  
+     * 
+     * 12. 
+     * */
+    console.log('==>', quiceAry);
+
+  </script>
+</body>
+
+</html>

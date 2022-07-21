@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 快速排序 执行了 10的10次方 
+    var array = [8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7];
+    // 利用快排还可以实现在 O(n) 的时间复杂度内求无序数组的第 k 大元素。（k 为正整数）
+    
+    // 快速排序
+    function quickSort(array = []) {
+      if (array.length <= 1) return array;
+      let prvioder = Math.floor(array.length / 2);
+      let elm = array.splice(prvioder, 1)[0];
+      let left = [], right = [];
+      for (let i = 0; i < array.length; i++) {
+        let item = array[i];
+        if (item < elm) {
+          left.push(item)
+        } else {
+          right.push(item)
+        }
+      }
+
+      return [...quickSort(left), elm, ...quickSort(right)]
+    }
+
+    let quiceAry = quickSort(array);
+    console.log('==>', quiceAry);
+
+  </script>
+</body>
+
+</html>

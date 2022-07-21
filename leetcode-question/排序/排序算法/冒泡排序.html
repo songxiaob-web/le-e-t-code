@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 冒泡排序 执行了 10的10次方 
+    var array = [8, 1, 2, 3, 5, 6, 2, 2, 9, 4, 7];
+    var arr = array.slice();
+    function maopao() {
+      // 轮数循环
+      for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+          let elm = array[j];
+          let item = array[j + 1];
+          if (elm > item) {
+            let tem = array[j];
+            array[j] = array[j + 1];
+            array[j + 1] = tem;
+          }
+        }
+      }
+    }
+    console.log( maopao())
+   
+  </script>
+</body>
+
+</html>

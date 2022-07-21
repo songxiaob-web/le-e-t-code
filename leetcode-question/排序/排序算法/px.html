@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+  
+    function binary(target, origin) {
+      let mIndex = 0;
+      return search(target, origin);
+    }
+
+    function search() {
+      let index = Math.floor((origin.length - 1) / 2);
+      let searchAry = [];
+      let ary = origin[index];
+      if (!ary) return false
+      if (ary.includes(target)) {
+        return ary
+      } else if (ary[0] > target) {
+        // 目标比中间项的 第一个值小, 则在左边找
+        searchAry = origin.splice(0, index);
+      } else if (ary[ary.length - 1] < target) {
+        // 目标比中间项的最后一个值大, 则在右边找
+        searchAry = origin.splice(index + 1);
+      }
+      return search(target, searchAry)
+    }
+
+    
+    var a = [[1, 2], [3, 4], [5, 6], [7, 8], [10, 11], [12, 13]];
+    var b = 20;
+    var c = binary(b, a);
+    console.log('c:::', c)
+
+  </script>
+</body>
+
+</html>

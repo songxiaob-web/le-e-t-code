@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>插入排序</title>
+</head>
+
+<body>
+  <script>
+    // 插入排序
+    var array = [8, 1, 2, 3, 5, 6, 2, 29, 4, 7];
+
+    function insertionSort(array, arr = []) {
+      let last = array.shift()
+      if (arr.length <= 0 || last >= arr[arr.length - 1]) {
+        arr.push(last);
+        return insertionSort(array, arr)
+      }
+      
+      arr.push(last);
+      for (let i = arr.length - 1; i >= 0; i--) {
+        for (let j = arr.length - 1; j >= 0; j--) {
+          let item = arr[j - 1];
+          let lastItem = arr[j];
+          if (lastItem < item) {
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+          }else{
+            continue
+          }
+        }
+      }
+
+      // console.log(array, arr)
+      if (array.length <= 0) return arr
+      return insertionSort(array, arr)
+    }
+
+    var arr = insertionSort(array);
+    console.log('==>', arr);
+
+  </script>
+</body>
+
+</html>

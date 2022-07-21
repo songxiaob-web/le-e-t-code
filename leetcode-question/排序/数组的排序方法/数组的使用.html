@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style></style>
+</head>
+
+<body>
+<script>
+	function checkArry(){
+//	当改变数组的值，当赋值到另一个数组时，改变赋值后的数组的值，以前的数组的数组也会变化，所以当引用数组的特定函数时候，原来的数组也会发生变化，数组的赋值 是按地址传递，不是h传值，
+	var arr1 = ['张无忌','赵敏']
+	var arr2 = arr1;
+	console.log(arr1)
+	arr2[1] = '金花婆婆';
+	console.log(arr1,arr2)
+	}
+
+	var array = ['张无忌','赵敏'];
+	function newChange(){
+		console.log('1',array);
+		array[0] = '金花婆婆';
+		console.log('2',array);
+	}
+	
+	function newChangeArry(){
+		newChange(array);
+		console.log('3',array);
+		array = new Array('孙悟空','猪八戒')
+		console.log('3',array);
+	}
+	console.log('new',array)
+	
+	//数组中值大小的排序和比较
+	function sort(a,b){
+		return (a - b)
+	}
+	
+	var arr = [38,5,62,129,24];
+	function sortArry(){
+			console.log(arr.sort(sort))
+	}
+	
+	//检索某个值在一个数组中的位置
+	function matchArry(){
+			var arr = [38,5,62,129,24];
+			var shuru = Number(prompt('请输入想要查找的数字:'))
+			var a = arr.indexOf(shuru)
+			if(a>=0){
+				console.log(a)
+			}else{
+				alert('您输入的数字不存在')
+			}
+	}
+	
+	</script>
+	<button onclick="newChange()">检查数组的数组交换</button>
+	<button onclick="newChangeArry(1)">检查数组的数组交换3</button>
+	<button onclick="checkArry()">检查数组</button>
+	<button onclick="sortArry()">数组大小的比较</button>
+	<button onclick="matchArry()">检索某个值在一个数组中的位置</button>
+</body>
+</html>

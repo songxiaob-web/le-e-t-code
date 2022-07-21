@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<script>
+	//用户随机输入数字,然后将输入的数字写入数组,如果输入exit退出
+	function writePush(){
+		var num = [];
+		do{
+			var value = prompt('请输入一个数字,退出请输入exit')
+			if(value != 'exit'){
+				num[num.length]= parseInt(value)
+			}	
+		}
+		while(value != 'exit');
+		console.log(num)
+	}
+	
+	function testArry(){
+		var index =[];
+		var arr=[5,38,8,99,678,38,102,540,38]
+		var input = prompt("请输入一个值");
+		for(var i in arr){
+			if(arr[i] ==input){
+				index[index.length] = parseInt(i);
+			}
+		}
+		if(index.length == 0){
+			console.log('没有找到')
+		}else{
+			console.log(index)
+		}
+	}
+	
+	function testArry_name(){
+		var name = ['张无忌','张翠山','张三丰']
+		for(var i in name){
+			console.log('第' + (parseInt(i) + 1) +'名:' + name[i])
+		}
+	}
+	
+	//关联数组,以字符串为索引的数组,数组长度不会记录,只能用for in 循环来遍历数组
+	function  relativeArr(){
+		var arr =[];
+		arr['西游记']='孙悟空';	
+		arr['红楼梦']=['贾宝玉','林黛玉','薛宝钗',38]	
+		console.log(arr);
+		for( let i in arr){
+			console.log('--->',i,arr[i]);
+		}
+	}
+	
+</script>
+</body>
+<button onclick="writePush()">测试数组写入功能</button>
+<button onclick="testArry()">测试数组遍历循环下标,求证一个数组里有几个值</button>
+<button onclick="testArry_name()">测试数组</button>
+<button onclick="relativeArr()">测试数组</button>
+</html>
