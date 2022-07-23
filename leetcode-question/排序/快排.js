@@ -46,6 +46,7 @@ function doSort(ary, start, end) {
    * let arys = [2, 3, 2, 7, 1, 5, 4, 6];
    *        ij  
    * [2, 1, 2, 7, 3, 5, 4, 6];
+   * n * logN
    */
   let startPoint = start;
   let first = ary[start];
@@ -60,7 +61,6 @@ function doSort(ary, start, end) {
     }
 
     if (start < end) {
-      console.log('这里..', start, end);
       [ary[start], ary[end]] = [ary[end], ary[start]];
       start += 1;
       end -= 1;

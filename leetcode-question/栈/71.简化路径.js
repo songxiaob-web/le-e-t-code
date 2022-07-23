@@ -25,7 +25,7 @@ var simplifyPath = function (path) {
         break;
     }
   }
-  return stack.join('')
+  return stack.length > 0 ? stack.join('') : '/'
 };
 // @lc code=end
 
