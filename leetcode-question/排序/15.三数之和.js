@@ -38,12 +38,12 @@ var threeSum = function (nums) {
   let index = 0;
   let ary = [];
   let temp = new Set();
-  while (index <= nums.length - 2) {
-    index += 1;
-    if (index > 0 && temp.has(nums[index])) {} else {
+  while (index < nums.length - 2) {
+    if (index > 0 && temp.has(nums[index])) { } else {
       temp.add(nums[index]);
       mySorts(index, ary, nums);
     }
+    index += 1;
   }
   return ary
 };
@@ -52,6 +52,7 @@ function mySorts(index, ary, nums) {
   let first = index;
   let start = index + 1;
   let end = nums.length - 1;
+  let temAry = {};
   while (start < end) {
     let result = 0 - nums[first];
     if (nums[start] + nums[end] > result) {
@@ -59,12 +60,16 @@ function mySorts(index, ary, nums) {
     } else if (nums[end] + nums[start] < result) {
       start += 1;
     } else {
-      ary.push([nums[first], nums[start], nums[end]]);
+      temAry[start] = nums[start];
+      if (start > 1 && temAry[start - 1] === temAry[start]) {
+      } else {
+        ary.push([nums[first], nums[start], nums[end]]);
+      }
       start += 1;
       end -= 1;
     }
   }
 }
-
+threeSum(nums);
 // @lc code=end
 
