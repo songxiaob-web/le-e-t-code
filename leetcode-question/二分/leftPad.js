@@ -1,4 +1,5 @@
 // hello 13 0 ;
+// 补0
 function leftPad(str, length, ch) {
   let len = length - str.length;
   let total = '';
